@@ -8,7 +8,7 @@ interface AuthRequest{
 
 class AuthUserService{
     async execute({email, password}: AuthRequest){
-
+        console.log("teste")
         const user = await prismaClient.user.findFirst({
             where:{
                 email: email
@@ -20,7 +20,7 @@ class AuthUserService{
         }
 
         const passwordMatch = compare(password, user.password)
-
+        
         if (!passwordMatch){
             throw new Error ("Invalid User/Password.")
         }
