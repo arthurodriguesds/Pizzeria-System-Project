@@ -38,7 +38,9 @@ class CreateUserService{
             }
         })
         return user;
+
     }
 }
+
 
 export {CreateUserService}
