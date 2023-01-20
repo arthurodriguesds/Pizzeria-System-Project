@@ -8,13 +8,12 @@ class CreateProductController{
             name,
             price,
             description,
-            banner,
          } = req.body
 
          if (!req.file){
             throw new Error("Error upload file.")
          }
-         const {originalname, filename} = req.file
+         const {originalname, filename: banner} = req.file
 
          const createProductService = new CreateProductService();
 
@@ -23,7 +22,7 @@ class CreateProductController{
             name,
             price,
             description,
-            banner: "",
+            banner,
         });
 
         return res.json(product);
